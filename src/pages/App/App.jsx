@@ -8,12 +8,16 @@ import EncounterForm from '../../components/EncounterForm/EncounterForm';
 
 
 export default function App() {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
   return (
     <div id='main-container'>
       <aside>
         <Logo />
-        <EncounterForm />
+        {user ? (
+          <EncounterForm />
+        ) : (
+          <AuthPage />
+        )}
       </aside>
       <main className="App">
         <Encounters />
