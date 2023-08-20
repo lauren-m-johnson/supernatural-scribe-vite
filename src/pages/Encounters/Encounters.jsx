@@ -1,7 +1,18 @@
-export default function Encounters() {
+import React from 'react';
+
+export default function Encounters(props) {
+    const { submittedData } = props;
+
     return (
-        <div>
-            <h1>Encounters</h1>
-        </div>
-    )
+      <div>
+        <h2>Encounters</h2>
+        {submittedData && (
+          <div className="submitted-data">
+            <p>Title: {submittedData.title}</p>
+            <p>Location: {submittedData.location}</p>
+            <p>Description: {submittedData.description}</p>
+          </div>
+        )}
+      </div>
+    );
 }

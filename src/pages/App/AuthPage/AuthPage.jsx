@@ -47,3 +47,6 @@ export default function AuthPage() {
         </div>
     );
 }
+
+// I recieved support from the Vite Docs and this guide to implement Google OAuth:
+// https://blog.logrocket.com/guide-adding-google-login-react-app/
