@@ -1,11 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import App from './pages/App/App';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+import { GoogleOAuthProvider } from '@react-oauth/google'; 
 import './index.css';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+
+createRoot(document.getElementById('root')).render(
+  <BrowserRouter>
+    <GoogleOAuthProvider clientId={googleClientId}>
+      <App />
+    </GoogleOAuthProvider>
+  </BrowserRouter>
+);

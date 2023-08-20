@@ -10,16 +10,15 @@ import EncounterForm from '../../components/EncounterForm/EncounterForm';
 export default function App() {
   const [user, setUser] = useState(null);
   return (
-    <div id='main-container'>
+<div id='main-container'>
       <aside>
         <Logo />
-        {user ? (
-          <EncounterForm />
-        ) : (
-          <AuthPage />
-        )}
       </aside>
       <main className="App">
+        <Routes>
+          <Route path="/" element={<AuthPage />} />
+          <Route path="/encounterform" element={user ? <EncounterForm /> : <AuthPage />} />
+        </Routes>
         <Encounters />
       </main>
     </div>
